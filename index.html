@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logistics Company Website</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f7fa;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #004aad;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+    nav {
+      background-color: #003580;
+      display: flex;
+      justify-content: center;
+      padding: 10px;
+      flex-wrap: wrap;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #ffcc00;
+    }
+    section {
+      display: none;
+      padding: 30px;
+      text-align: center;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+    section.active {
+      display: block;
+    }
+    section h2 {
+      color: #004aad;
+    }
+    footer {
+      background-color: #003580;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      margin-top: 30px;
+    }
+    img {
+      margin-top: 20px;
+      width: 80%;
+      max-width: 600px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+    .service-list {
+      text-align: left;
+      max-width: 600px;
+      margin: 20px auto;
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    .inquiry-form {
+      max-width: 600px;
+      margin: 20px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      text-align: left;
+    }
+    .inquiry-form label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    .inquiry-form input, 
+    .inquiry-form select, 
+    .inquiry-form textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    .inquiry-form button {
+      margin-top: 15px;
+      background-color: #004aad;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .inquiry-form button:hover {
+      background-color: #003580;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Welcome to Our Logistics Company</h1>
+  </header>
+
+  <nav>
+    <a onclick="showPage('home')">Home</a>
+    <a onclick="showPage('services')">Services</a>
+    <a onclick="showPage('about')">About Us</a>
+  </nav>
+
+  <!-- Home Page -->
+  <section id="home" class="active">
+    <h2>Introduction</h2>
+    <p>
+      Our logistics company delivers more than just goods — we deliver with trust.
+      We provide fast and reliable transportation services for all types of businesses,
+      whether by land or by sea. Your satisfaction and confidence are our top priorities.
+    </p>
+    <img src="https://cdn.pixabay.com/photo/2016/11/29/09/08/cargo-1868102_1280.jpg" 
+         alt="Cargo ship delivering goods">
+  </section>
+
+  <!-- Services Page -->
+  <section id="services">
+    <h2>Our Services</h2>
+    <p>
+      We provide end-to-end delivery solutions designed to keep your supply running smoothly.
+      Our team offers fast, reliable, and efficient transportation for time-sensitive shipments.
+      Whether by land or sea, we ensure your cargo reaches its destination safely and on time.
+    </p>
+
+    <div class="service-list">
+      <h3>🚚 Types of Delivery Trucks</h3>
+      <ul>
+        <li><strong>Light Trucks:</strong> For small deliveries and local transport.</li>
+        <li><strong>Medium Trucks:</strong> Perfect for mid-sized shipments or intercity deliveries.</li>
+        <li><strong>Heavy Trucks:</strong> For large-scale or bulk cargo across long distances.</li>
+      </ul>
+    </div>
+
+    <div class="inquiry-form">
+      <h3>📦 Delivery & Import Inquiry Form</h3>
+      <form onsubmit="submitForm(event)">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" required>
+
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" required>
+
+        <label for="service">Type of Service:</label>
+        <select id="service" required>
+          <option value="">-- Select a Service --</option>
+          <option value="local">Local Delivery</option>
+          <option value="domestic">Domestic Cargo</option>
+          <option value="international">Import / Export</option>
+        </select>
+
+        <label for="message">Message or Delivery Details:</label>
+        <textarea id="message" rows="4" placeholder="Enter delivery details..." required></textarea>
+
+        <button type="submit">Send Inquiry</button>
+      </form>
+    </div>
+
+    <img src="https://cdn.pixabay.com/photo/2017/06/06/09/53/logistics-2374817_1280.jpg" 
+         alt="Logistics services trucks">
+  </section>
+
+  <!-- About Us Page -->
+  <section id="about">
+    <h2>About Us</h2>
+    <p>
+      Our logistics company is a trusted logistics partner dedicated to connecting businesses 
+      across the globe. We manage your shipments with real-time tracking and excellent support 
+      to keep your supply chain smooth and efficient.
+    </p>
+    <img src="https://cdn.pixabay.com/photo/2017/09/06/11/18/container-ship-2720431_1280.jpg" 
+         alt="About our logistics company">
+  </section>
+
+  <footer>
+    <p>© 2025 Logistics Company | Delivering with Trust</p>
+  </footer>
+
+  <script>
+    // Switch between sections
+    function showPage(pageId) {
+      document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
+      document.getElementById(pageId).classList.add("active");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    // Handle form submission
+    function submitForm(event) {
+      event.preventDefault();
+      const name = document.getElementById("name").value;
+      alert(`Thank you, ${name}! Your delivery inquiry has been sent successfully.`);
+      event.target.reset();
+    }
+  </script>
+</body>
+</html>
